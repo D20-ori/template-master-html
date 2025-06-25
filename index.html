@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Bilan des cartes PES 2025 - Version Finale</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --background-light: #f3f4f6;
+            --text-light: #111827;
+            --background-dark: #1f2937;
+            --text-dark: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .pb-4 { padding-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mr-4 { margin-right: 1rem; }
+        .mr-2 { margin-right: 0.5rem; }
+        .mr-1 { margin-right: 0.25rem; }
+        .ml-3 { margin-left: 0.75rem; }
+        .ml-4 { margin-left: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-4 { padding: 1rem; }
+        .p-2 { padding: 0.5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-xs { font-size: 0.75rem; line-height: 1rem; }
+
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-medium { font-weight: 500; }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .hidden { display: none; }
+        .block { display: block; }
+        .inline-flex { display: inline-flex; }
+
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-end { justify-content: flex-end; }
+        .justify-center { justify-content: center; }
+
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .space-x-2 > * + * { margin-left: 0.5rem; }
+
+        .overflow-x-auto { overflow-x: auto; }
+        .overflow-y-auto { overflow-y: auto; }
+
+        .w-full { width: 100%; }
+        .w-48 { width: 12rem; }
+        .w-90 { width: 90%; }
+        .max-w-full { max-width: 100%; }
+        .min-w-full { min-width: 100%; }
+
+        .h-full { height: 100%; }
+        .max-h-90vh { max-height: 90vh; }
+
+        .bg-white { background-color: white; }
+        .bg-gray-100 { background-color: #f3f4f6; }
+        .bg-gray-200 { background-color: #e5e7eb; }
+        .bg-gray-300 { background-color: #d1d5db; }
+
+        .text-black { color: black; }
+        .text-white { color: white; }
+        .text-gray-500 { color: #6b7280; }
+        .text-gray-600 { color: #4b5563; }
+        .text-gray-700 { color: #374151; }
+        .text-red-600 { color: #dc2626; }
+        .text-red-800 { color: #991b1b; }
+        .text-blue-600 { color: #2563eb; }
+        .text-green-600 { color: #16a34a; }
+        .text-purple-600 { color: #9333ea; }
+
+        .hover\:bg-gray-100:hover { background-color: #f3f4f6; }
+        .hover\:bg-gray-300:hover { background-color: #d1d5db; }
+        .hover\:text-red-800:hover { color: #991b1b; }
+
+        .border { border-width: 1px; }
+        .border-b { border-bottom-width: 1px; }
+        .border-gray-300 { border-color: #d1d5db; }
+
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-t-lg { border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; }
+        .rounded-full { border-radius: 9999px; }
+
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+
+        .cursor-pointer { cursor: pointer; }
+
+        .tab-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            color: black !important;
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5db;
+        }
+
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .tab-button.active::after, .tab-button:hover::after {
+            width: 100%;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white !important;
+        }
+
+        .dark-mode .tab-button {
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode .tab-button.active {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white !important;
+        }
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        .dark-mode .card {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 200px;
+            width: 100%;
+        }
+
+        .button-primary {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .button-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .button-primary:hover, .button-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s linear 0.25s, opacity 0.25s 0s;
+        }
+
+        .popup.active {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .dark-mode .popup-content {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: inherit;
+        }
+
+        .chart-detail-popup .popup-content {
+            max-width: 1200px;
+        }
+
+        .chart-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .chart-detail-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-detail-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .detail-list {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .dark-mode .detail-list {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-item {
+            padding: 0.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dark-mode .detail-item {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .calendar-detail {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            margin-top: 1rem;
+        }
+
+        .calendar-day-detail {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .calendar-day-detail.has-articles {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        .calendar-day-detail.empty {
+            background-color: #f3f4f6;
+            color: #9ca3af;
+        }
+
+        .calendar-day-detail:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .calendar-month-header {
+            text-align: center;
+            font-weight: bold;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 8px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .comparison-table th,
+        .dark-mode .comparison-table td {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background-color: rgba(0, 0, 0, 0.05);
+            font-weight: bold;
+        }
+
+        .dark-mode .comparison-table th {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .trend-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .trend-up {
+            color: #10b981;
+        }
+
+        .trend-down {
+            color: #ef4444;
+        }
+
+        .trend-stable {
+            color: #6b7280;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table tbody td {
+            color: black !important;
+        }
+
+        .dark-mode table tbody td {
+            color: black !important;
+            background-color: white;
+        }
+
+        .dark-mode table thead th {
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            cursor: pointer;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        th::after {
+            content: '';
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+
+        th.sort-asc::after {
+            border-bottom: 5px solid currentColor;
+            border-top: none;
+        }
+
+        th.sort-desc::after {
+            border-top: 5px solid currentColor;
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card {
+            position: relative;
+            border-radius: 12px;
+            padding: 1.5rem;
+            overflow: hidden;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+            z-index: 1;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+            transition: width 0.5s ease;
+        }
+
+        .calendar-picker {
+            position: relative;
+        }
+
+        .calendar-popup {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            display: none;
+            min-width: 250px;
+        }
+        
+        .dark-mode .calendar-popup {
+            background-color: var(--background-dark);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+
+        .calendar-day {
+            padding: 8px 4px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .calendar-day:hover {
+            background-color: rgba(79, 70, 229, 0.1);
+        }
+
+        .calendar-day.selected {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .calendar-day.other-month {
+            color: #ccc;
+        }
+
+        .form-input {
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            width: 100%;
+            background-color: white;
+        }
+
+        .dark-mode .form-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1rem;
+            min-height: 500px;
+        }
+
+        .settings-container .setting-item {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background-color: white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .settings-container .setting-item {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .top-bar {
+            position: relative;
+            top: auto;
+            z-index: auto;
+            background-color: inherit;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .year-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .year-selector select {
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            background-color: white;
+        }
+
+        .dark-mode .year-selector select {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .year-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .year-actions button {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .export-json-container {
+            position: relative;
+            z-index: 1000;
+        }
+
+        .export-json-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite, pulse 2s ease-in-out infinite alternate;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .export-json-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .export-json-button:hover::before {
+            left: 100%;
+        }
+
+        .export-json-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .export-json-button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            100% {
+                box-shadow: 0 4px 25px rgba(255, 107, 107, 0.4);
+            }
+        }
+
+        .dark-mode .export-json-button {
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode .export-json-button:hover {
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Icônes SVG intégrées */
+        .icon-cog {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-plus {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-trash {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-download {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-file-import {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-file-pdf {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-file-excel {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-chevron-left {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-chevron-right {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-arrow-up {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-arrow-down {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-minus {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        .icon-edit {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+            
+            .chart-detail-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+            }
+            
+            .chart-detail-container {
+                grid-template-columns: 1fr;
+            }
+
+            .flex {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .year-selector {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Icônes SVG cachées pour utilisation -->
+    <div style="display: none;">
+        <svg>
+            <symbol id="icon-cog" viewBox="0 0 24 24">
+                <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.13-.22.07-.49-.12-.64L19.43 13.5z"/>
+            </symbol>
+            <symbol id="icon-plus" viewBox="0 0 24 24">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </symbol>
+            <symbol id="icon-trash" viewBox="0 0 24 24">
+                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+            </symbol>
+            <symbol id="icon-download" viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/>
+            </symbol>
+            <symbol id="icon-file-import" viewBox="0 0 24 24">
+                <path d="M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h10l6-6V8l-6-6H6zm7 7V3.5L18.5 9H13z"/>
+                <path d="M8 15l4-4 4 4h-3v4h-2v-4H8z"/>
+            </symbol>
+            <symbol id="icon-file-pdf" viewBox="0 0 24 24">
+                <path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v1h-1.5V7h3v1.5zM9 9.5h1v-1H9v1z"/>
+            </symbol>
+            <symbol id="icon-file-excel" viewBox="0 0 24 24">
+                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </symbol>
+            <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </symbol>
+            <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </symbol>
+            <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+                <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+            </symbol>
+            <symbol id="icon-arrow-down" viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </symbol>
+            <symbol id="icon-minus" viewBox="0 0 24 24">
+                <path d="M19 13H5v-2h14v2z"/>
+            </symbol>
+            <symbol id="icon-edit" viewBox="0 0 24 24">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </symbol>
+        </svg>
+    </div>
+
+    <div class="toast" id="toast">
+        <div id="toast-message"></div>
+    </div>
+
+    <div class="container mx-auto px-4 py-4">
+        <div class="top-bar mb-8 pb-4">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl font-bold" id="main-title">Bilan des cartes PES 2025</h1>
+
+                <!-- Export JSON déplacé ici -->
+                <div class="export-json-container">
+                    <button class="export-json-button" id="export-json-button">
+                        <svg class="icon-download mr-2"><use href="#icon-download"></use></svg>
+                        <span>Export JSON</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="mr-4 text-sm">
+                        <span>Dernier export JSON: </span>
+                        <span class="font-semibold" id="last-save-time">Jamais</span>
+                    </div>
+                    <button class="text-black p-2 rounded-full bg-gray-200 hover:bg-gray-300" id="settings-button">
+                        <svg class="icon-cog"><use href="#icon-cog"></use></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="flex overflow-x-auto space-x-2 mb-4">
+                <button class="tab-button active px-4 py-2 font-medium rounded-t-lg" data-tab="dashboard">Tableau de bord</button>
+                <button class="tab-button px-4 py-2 font-medium rounded-t-lg" data-tab="nouveautes">Nouveautés</button>
+                <button class="tab-button px-4 py-2 font-medium rounded-t-lg" data-tab="evolutions">Évolutions</button>
+                <button class="tab-button px-4 py-2 font-medium rounded-t-lg" data-tab="diversifications">Diversifications</button>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md" id="tab-content">
+            <!-- Dashboard Tab -->
+            <div class="tab-pane active" id="dashboard">
+                <!-- Sélecteur d'année -->
+                <div class="year-selector">
+                    <label for="year-select" class="text-lg font-semibold">Année</label>
+                    <select id="year-select" class="form-input w-48">
+                        <option value="2025">2025</option>
+                        <option value="all">Toutes les années</option>
+                    </select>
+                    <div class="year-actions">
+                        <button class="button-secondary" id="create-year-btn">
+                            <svg class="icon-plus mr-1"><use href="#icon-plus"></use></svg>Nouvelle année
+                        </button>
+                        <button class="button-secondary" id="delete-year-btn">
+                            <svg class="icon-trash mr-1"><use href="#icon-trash"></use></svg>Supprimer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex gap-4">
+                    <input accept=".json" class="hidden" id="import-json-file" type="file"/>
+                    <button class="button-secondary" id="import-json-button">
+                        <svg class="icon-file-import mr-2"><use href="#icon-file-import"></use></svg>Import JSON rempli
+                    </button>
+                </div>
+
+                <h2 class="text-2xl font-bold mb-6 mt-6">Tableau de bord</h2>
+                <div class="dashboard-grid">
+                    <!-- Répartition des articles -->
+                    <div class="card bg-white p-6 shadow-lg" data-chart-type="distribution">
+                        <h3 class="text-lg font-semibold mb-4">Répartition des articles</h3>
+                        <div class="chart-container">
+                            <canvas id="distribution-chart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Activité mensuelle -->
+                    <div class="card bg-white p-6 shadow-lg" data-chart-type="monthly">
+                        <h3 class="text-lg font-semibold mb-4">Articles par mois et type</h3>
+                        <div class="chart-container">
+                            <canvas id="monthly-chart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Statistiques générales -->
+                    <div class="card bg-gradient-to-r from-blue-500 to-blue-700 text-white p-6 shadow-lg stat-card" data-chart-type="general-stats" style="background: linear-gradient(to right, #3b82f6, #1d4ed8);">
+                        <h3 class="text-lg font-semibold mb-4">Statistiques générales</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="stat-value text-lg" id="total-designers">0</div>
+                                <div class="stat-label text-sm">Concepteurs</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="stat-value text-lg" id="total-implanters">0</div>
+                                <div class="stat-label text-sm">Implanteurs</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Nombre total d'articles -->
+                    <div class="card bg-gradient-to-r from-green-500 to-green-700 text-white p-6 shadow-lg stat-card" data-chart-type="total-articles" style="background: linear-gradient(to right, #10b981, #059669);">
+                        <h3 class="text-lg font-semibold mb-4">Nombre total d'articles</h3>
+                        <div class="stat-value" id="total-articles-simple">0</div>
+                        <div class="stat-label">articles enregistrés</div>
+                    </div>
+                    <!-- Top implanteurs -->
+                    <div class="card bg-white p-6 shadow-lg" data-chart-type="top-implanters">
+                        <h3 class="text-lg font-semibold mb-4">Top implanteurs</h3>
+                        <div class="chart-container">
+                            <canvas id="activity-chart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Top concepteurs -->
+                    <div class="card bg-white p-6 shadow-lg" data-chart-type="top-designers">
+                        <h3 class="text-lg font-semibold mb-4">Top concepteurs</h3>
+                        <div class="chart-container">
+                            <canvas id="contributors-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nouveautés Tab -->
+            <div class="tab-pane hidden" id="nouveautes">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Nouveaux design avec prises de numéros</h2>
+                    <button class="button-primary" id="add-nouveaute">
+                        <svg class="icon-plus mr-2"><use href="#icon-plus"></use></svg>Ajouter
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full" id="nouveautes-table">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-700">
+                                <th class="py-3 px-4 text-left" data-sort="dateCreation">Date de création</th>
+                                <th class="py-3 px-4 text-left" data-sort="dateSchemaReview">Date de revue de schéma</th>
+                                <th class="py-3 px-4 text-left" data-sort="dateImplantationReview">Date de revue d'implantation</th>
+                                <th class="py-3 px-4 text-left" data-sort="datePLM">Date de mise sous PLM</th>
+                                <th class="py-3 px-4 text-left" data-sort="name">Nom de l'article</th>
+                                <th class="py-3 px-4 text-left" data-sort="number">Numéro d'article</th>
+                                <th class="py-3 px-4 text-left" data-sort="type">Type</th>
+                                <th class="py-3 px-4 text-left" data-sort="frontDesigner">Concepteur FrontEnd</th>
+                                <th class="py-3 px-4 text-left" data-sort="backImplanter">Implanteur BackEnd</th>
+                                <th class="py-3 px-4 text-left" data-sort="comments">Commentaires</th>
+                                <th class="py-3 px-4 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les données sont injectées dynamiquement via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Évolutions Tab -->
+            <div class="tab-pane hidden" id="evolutions">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Évolution et modification de dossiers</h2>
+                    <button class="button-primary" id="add-evolution">
+                        <svg class="icon-plus mr-2"><use href="#icon-plus"></use></svg>Ajouter
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full" id="evolutions-table">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-700">
+                                <th class="py-3 px-4 text-left" data-sort="dateCreation">Date de création</th>
+                                <th class="py-3 px-4 text-left" data-sort="dateSchemaReview">Date de revue de schéma</th>
+                                <th class="py-3 px-4 text-left" data-sort="dateImplantationReview">Date de revue d'implantation</th>
+                                <th class="py-3 px-4 text-left" data-sort="datePLM">Date de mise sous PLM</th>
+                                <th class="py-3 px-4 text-left" data-sort="name">Nom de l'article</th>
+                                <th class="py-3 px-4 text-left" data-sort="number">Numéro d'article</th>
+                                <th class="py-3 px-4 text-left" data-sort="type">Type</th>
+                                <th class="py-3 px-4 text-left" data-sort="frontDesigner">Concepteur FrontEnd</th>
+                                <th class="py-3 px-4 text-left" data-sort="backImplanter">Implanteur BackEnd</th>
+                                <th class="py-3 px-4 text-left" data-sort="comments">Commentaires</th>
+                                <th class="py-3 px-4 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les données sont injectées dynamiquement via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Diversifications Tab -->
+            <div class="tab-pane hidden" id="diversifications">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Nouveaux design avec numéros déjà existants</h2>
+                    <button class="button-primary" id="add-diversification">
+                        <svg class="icon-plus mr-2"><use href="#icon-plus"></use></svg>Ajouter
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full" id="diversifications-table">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-700">
+                                <th class="py-3 px-4 text-left" data-sort="dateCreation">Date de création</th>
+                                <th class="py-3 px-4 text-left" data-sort="dateSchemaReview">Date de revue de schéma</th>
+                                <th class="py-3 px-4 text-left" data-sort="dateImplantationReview">Date de revue d'implantation</th>
+                                <th class="py-3 px-4 text-left" data-sort="datePLM">Date de mise sous PLM</th>
+                                <th class="py-3 px-4 text-left" data-sort="name">Nom de l'article</th>
+                                <th class="py-3 px-4 text-left" data-sort="number">Numéro d'article</th>
+                                <th class="py-3 px-4 text-left" data-sort="type">Type</th>
+                                <th class="py-3 px-4 text-left" data-sort="frontDesigner">Concepteur FrontEnd</th>
+                                <th class="py-3 px-4 text-left" data-sort="backImplanter">Implanteur BackEnd</th>
+                                <th class="py-3 px-4 text-left" data-sort="comments">Commentaires</th>
+                                <th class="py-3 px-4 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les données sont injectées dynamiquement via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Formulaire -->
+    <div class="popup" id="item-popup">
+        <div class="popup-content">
+            <button class="close-button" id="close-popup">×</button>
+            <h2 class="text-2xl font-bold mb-6" id="popup-title">Ajouter un nouvel article</h2>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="item-form" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                <input id="form-id" type="hidden"/>
+                <input id="form-category" type="hidden"/>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-date-creation">Date de création</label>
+                    <div class="calendar-picker">
+                        <input class="form-input" id="form-date-creation" placeholder="JJ/MM/AAAA" readonly="" type="text"/>
+                        <div class="calendar-popup" id="calendar-date-creation"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-date-schema-review">Date de revue de schéma</label>
+                    <div class="calendar-picker">
+                        <input class="form-input" id="form-date-schema-review" placeholder="JJ/MM/AAAA" readonly="" type="text"/>
+                        <div class="calendar-popup" id="calendar-date-schema-review"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-date-implantation-review">Date de revue d'implantation</label>
+                    <div class="calendar-picker">
+                        <input class="form-input" id="form-date-implantation-review" placeholder="JJ/MM/AAAA" readonly="" type="text"/>
+                        <div class="calendar-popup" id="calendar-date-implantation-review"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-date-plm">Date de mise sous PLM</label>
+                    <div class="calendar-picker">
+                        <input class="form-input" id="form-date-plm" placeholder="JJ/MM/AAAA" readonly="" type="text"/>
+                        <div class="calendar-popup" id="calendar-date-plm"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-name">Nom de l'article</label>
+                    <input class="form-input" id="form-name" placeholder="Nom de l'article" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-number">Numéro d'article</label>
+                    <input class="form-input" id="form-number" placeholder="Numéro d'article" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-type">Type</label>
+                    <select class="form-input" id="form-type">
+                        <option value="Maquette">Maquette</option>
+                        <option value="Produit">Produit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-front-designer">Concepteur FrontEnd</label>
+                    <input class="form-input" id="form-front-designer" placeholder="Concepteur FrontEnd" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label class="block mb-2" for="form-back-implanter">Implanteur BackEnd</label>
+                    <input class="form-input" id="form-back-implanter" placeholder="Implanteur BackEnd" type="text"/>
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label class="block mb-2" for="form-comments">Commentaires</label>
+                    <textarea class="form-input" id="form-comments" placeholder="Commentaires" rows="3"></textarea>
+                </div>
+                <div style="grid-column: span 2;" class="flex justify-end mt-4">
+                    <button class="button-secondary mr-4" id="cancel-form" type="button">Annuler</button>
+                    <button class="button-primary" id="save-form" type="submit">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup Détails des Graphiques -->
+    <div class="popup chart-detail-popup" id="chart-detail-popup">
+        <div class="popup-content">
+            <button class="close-button" id="close-chart-detail">×</button>
+            <h2 class="text-2xl font-bold mb-4" id="chart-detail-title">Détails du graphique</h2>
+            <div class="chart-detail-container" id="chart-detail-container">
+                <!-- Le contenu sera généré dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Réglages -->
+    <div class="popup" id="settings-popup">
+        <div class="popup-content">
+            <button class="close-button" id="close-settings">×</button>
+            <h2 class="text-2xl font-bold mb-6">Réglages</h2>
+            <div class="settings-container">
+                <div class="setting-item">
+                    <h3 class="text-lg font-semibold mb-4">Apparence</h3>
+                    <div class="flex items-center">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input class="sr-only peer" id="dark-mode-toggle" type="checkbox"/>
+                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+							<span class="ml-3 text-sm font-medium">Mode sombre</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <h3 class="text-lg font-semibold mb-4">Exportation</h3>
+                    <button class="button-primary mb-4 w-full" id="export-pdf">
+                        <svg class="icon-file-pdf mr-2"><use href="#icon-file-pdf"></use></svg>Exporter en PDF
+                    </button>
+                    <button class="button-secondary w-full" id="export-excel">
+                        <svg class="icon-file-excel mr-2"><use href="#icon-file-excel"></use></svg>Exporter en Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de confirmation pour la suppression -->
+    <div class="popup" id="confirmation-popup">
+        <div class="popup-content" style="max-width: 400px;">
+            <h2 class="text-xl font-bold mb-4">Confirmation</h2>
+            <p class="mb-6">Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.</p>
+            <div class="flex justify-end">
+                <button class="button-secondary mr-4" id="cancel-delete">Annuler</button>
+                <button class="button-primary" id="confirm-delete" style="background: #dc2626; border-color: #dc2626;">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup pour créer une nouvelle année -->
+    <div class="popup" id="create-year-popup">
+        <div class="popup-content" style="max-width: 400px;">
+            <button class="close-button" id="close-create-year">×</button>
+            <h2 class="text-xl font-bold mb-4">Créer une nouvelle année</h2>
+            <div class="mb-4">
+                <label class="block mb-2" for="new-year-input">Année</label>
+                <input class="form-input" id="new-year-input" placeholder="2026" type="number" min="2020" max="2050"/>
+            </div>
+            <div class="flex justify-end">
+                <button class="button-secondary mr-4" id="cancel-create-year">Annuler</button>
+                <button class="button-primary" id="confirm-create-year">Créer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup pour sélectionner l'année d'import -->
+    <div class="popup" id="import-year-popup">
+        <div class="popup-content" style="max-width: 500px;">
+            <button class="close-button" id="close-import-year">×</button>
+            <h2 class="text-xl font-bold mb-4">Importer dans quelle année ?</h2>
+            <div class="mb-4">
+                <p class="mb-3 text-gray-600">Sélectionnez l'année dans laquelle vous souhaitez importer les données :</p>
+                <div class="mb-3">
+                    <label class="block mb-2" for="import-year-select">Année de destination :</label>
+                    <select class="form-input" id="import-year-select">
+                        <!-- Options générées dynamiquement -->
+                    </select>
+                </div>
+                <div class="text-sm text-gray-500">
+                    <p><strong>Années disponibles :</strong> <span id="available-years-list"></span></p>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button class="button-secondary mr-4" id="cancel-import-year">Annuler</button>
+                <button class="button-primary" id="confirm-import-year">Importer</button>
+			            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion de Chart.js via CDN local ou fallback -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+    <script>
+        // État global de l'application
+        const state = {
+            currentYear: '2025',
+            availableYears: ['2025'],
+            data: {
+                '2025': {
+                    nouveautes: [],
+                    evolutions: [],
+                    diversifications: []
+                }
+            },
+            currentCategory: null,
+            deleteItemId: null,
+            deleteYear: null,
+            darkMode: false,
+            sortColumn: null,
+            sortDirection: 'asc',
+            charts: {},
+            currentCalendarDate: {},
+            pendingImportData: null,
+            chartDetailPopupOpen: false,
+            currentEditingItem: null
+        };
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            initYearManagement();
+            initTabs();
+            initPopups();
+            initForms();
+            initCalendars();
+            initCharts();
+            initSettings();
+            initTableSort();
+            initChartClickHandlers();
+            initAddButtons();
+            initImportExport();
+            updateDashboard();
+            updateAllTables();
+            
+            document.getElementById('last-save-time').textContent = 'Jamais';
+        });
+
+        // Initialisation des boutons d'ajout
+        function initAddButtons() {
+            document.getElementById('add-nouveaute').addEventListener('click', () => {
+                openFormPopup('nouveautes');
+            });
+
+            document.getElementById('add-evolution').addEventListener('click', () => {
+                openFormPopup('evolutions');
+            });
+
+            document.getElementById('add-diversification').addEventListener('click', () => {
+                openFormPopup('diversifications');
+            });
+        }
+
+        // Ouvrir le popup de formulaire
+        function openFormPopup(category, item = null) {
+            if (state.currentYear === 'all') {
+                showToast('Veuillez sélectionner une année spécifique pour ajouter des éléments');
+                return;
+            }
+
+            state.currentCategory = category;
+            state.currentEditingItem = item;
+
+            const popup = document.getElementById('item-popup');
+            const title = document.getElementById('popup-title');
+            const form = document.getElementById('item-form');
+
+            // Définir le titre selon l'action et la catégorie
+            const categoryNames = {
+                'nouveautes': 'Nouveauté',
+                'evolutions': 'Évolution',
+                'diversifications': 'Diversification'
+            };
+
+            if (item) {
+                title.textContent = `Modifier ${categoryNames[category]}`;
+                populateForm(item);
+            } else {
+                title.textContent = `Ajouter ${categoryNames[category]}`;
+                resetForm();
+            }
+
+            document.getElementById('form-category').value = category;
+            popup.classList.add('active');
+        }
+
+        // Remplir le formulaire avec les données d'un élément
+        function populateForm(item) {
+            document.getElementById('form-id').value = item.id || '';
+            document.getElementById('form-date-creation').value = item.dateCreation || '';
+            document.getElementById('form-date-schema-review').value = item.dateSchemaReview || '';
+            document.getElementById('form-date-implantation-review').value = item.dateImplantationReview || '';
+            document.getElementById('form-date-plm').value = item.datePLM || '';
+            document.getElementById('form-name').value = item.name || '';
+            document.getElementById('form-number').value = item.number || '';
+            document.getElementById('form-type').value = item.type || 'Maquette';
+            document.getElementById('form-front-designer').value = item.frontDesigner || '';
+            document.getElementById('form-back-implanter').value = item.backImplanter || '';
+            document.getElementById('form-comments').value = item.comments || '';
+        }
+
+        // Réinitialiser le formulaire
+        function resetForm() {
+            document.getElementById('form-id').value = '';
+            document.getElementById('form-date-creation').value = '';
+            document.getElementById('form-date-schema-review').value = '';
+            document.getElementById('form-date-implantation-review').value = '';
+            document.getElementById('form-date-plm').value = '';
+            document.getElementById('form-name').value = '';
+            document.getElementById('form-number').value = '';
+            document.getElementById('form-type').value = 'Maquette';
+            document.getElementById('form-front-designer').value = '';
+            document.getElementById('form-back-implanter').value = '';
+            document.getElementById('form-comments').value = '';
+        }
+
+        // Initialisation des formulaires
+        function initForms() {
+            const form = document.getElementById('item-form');
+            const saveBtn = document.getElementById('save-form');
+            const cancelBtn = document.getElementById('cancel-form');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                saveItem();
+            });
+
+            cancelBtn.addEventListener('click', () => {
+                document.getElementById('item-popup').classList.remove('active');
+                state.currentEditingItem = null;
+            });
+        }
+
+        // Sauvegarder un élément
+        function saveItem() {
+            const category = document.getElementById('form-category').value;
+            const itemId = document.getElementById('form-id').value;
+
+            const itemData = {
+                dateCreation: document.getElementById('form-date-creation').value,
+                dateSchemaReview: document.getElementById('form-date-schema-review').value,
+                dateImplantationReview: document.getElementById('form-date-implantation-review').value,
+                datePLM: document.getElementById('form-date-plm').value,
+                name: document.getElementById('form-name').value,
+                number: document.getElementById('form-number').value,
+                type: document.getElementById('form-type').value,
+                frontDesigner: document.getElementById('form-front-designer').value,
+                backImplanter: document.getElementById('form-back-implanter').value,
+                comments: document.getElementById('form-comments').value,
+                year: state.currentYear
+            };
+
+            if (itemId) {
+                // Modification d'un élément existant
+                const index = state.data[state.currentYear][category].findIndex(item => item.id === itemId);
+                if (index !== -1) {
+                    itemData.id = itemId;
+                    itemData.createdAt = state.data[state.currentYear][category][index].createdAt;
+                    itemData.updatedAt = new Date().toISOString();
+                    state.data[state.currentYear][category][index] = itemData;
+                    showToast('Élément modifié avec succès');
+                }
+            } else {
+                // Ajout d'un nouvel élément
+                itemData.id = Date.now().toString() + Math.random().toString(36).substr(2, 5);
+                itemData.createdAt = new Date().toISOString();
+                state.data[state.currentYear][category].push(itemData);
+                showToast('Élément ajouté avec succès');
+            }
+
+            // Fermer le popup et mettre à jour l'affichage
+            document.getElementById('item-popup').classList.remove('active');
+            state.currentEditingItem = null;
+            updateAllTables();
+            updateDashboard();
+        }
+
+        // Initialisation des calendriers
+        function initCalendars() {
+            const calendarInputs = [
+                'form-date-creation',
+                'form-date-schema-review',
+                'form-date-implantation-review',
+                'form-date-plm'
+            ];
+
+            calendarInputs.forEach(inputId => {
+                const input = document.getElementById(inputId);
+                const calendarId = `calendar-${inputId.replace('form-', '')}`;
+                const calendar = document.getElementById(calendarId);
+
+                input.addEventListener('click', () => {
+                    hideAllCalendars();
+                    showCalendar(calendar, input);
+                });
+
+                input.addEventListener('focus', () => {
+                    hideAllCalendars();
+                    showCalendar(calendar, input);
+                });
+            });
+
+            // Fermer les calendriers en cliquant ailleurs
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.calendar-picker')) {
+                    hideAllCalendars();
+                }
+            });
+        }
+
+        // Afficher un calendrier
+        function showCalendar(calendar, input) {
+            const currentDate = new Date();
+            const selectedDate = input.value ? parseDate(input.value) : currentDate;
+            
+            calendar.innerHTML = generateCalendarHTML(selectedDate, input);
+            calendar.style.display = 'block';
+        }
+
+        // Cacher tous les calendriers
+        function hideAllCalendars() {
+            document.querySelectorAll('.calendar-popup').forEach(cal => {
+                cal.style.display = 'none';
+            });
+        }
+
+        // Générer le HTML du calendrier
+        function generateCalendarHTML(date, input) {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const today = new Date();
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const firstDayOfWeek = firstDay.getDay();
+            const daysInMonth = lastDay.getDate();
+
+            const monthNames = [
+                'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+                'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+            ];
+
+            let html = `
+                <div class="calendar-header">
+                    <button type="button" onclick="changeMonth(this, -1, '${input.id}')">&lt;</button>
+                    <span>${monthNames[month]} ${year}</span>
+                    <button type="button" onclick="changeMonth(this, 1, '${input.id}')">&gt;</button>
+                </div>
+                <div class="calendar-days">
+                    <div class="font-semibold">Dim</div>
+                    <div class="font-semibold">Lun</div>
+                    <div class="font-semibold">Mar</div>
+                    <div class="font-semibold">Mer</div>
+                    <div class="font-semibold">Jeu</div>
+                    <div class="font-semibold">Ven</div>
+                    <div class="font-semibold">Sam</div>
+            `;
+
+            // Jours vides au début
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                html += '<div class="calendar-day"></div>';
+            }
+
+            // Jours du mois
+            for (let day = 1; day <= daysInMonth; day++) {
+                const isToday = (year === today.getFullYear() && month === today.getMonth() && day === today.getDate());
+                const isSelected = input.value === formatDate(new Date(year, month, day));
+                
+                html += `
+                    <div class="calendar-day ${isToday ? 'bg-blue-100' : ''} ${isSelected ? 'selected' : ''}" 
+                         onclick="selectDate(${year}, ${month}, ${day}, '${input.id}')">
+                        ${day}
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        // Sélectionner une date dans le calendrier
+        function selectDate(year, month, day, inputId) {
+            const date = new Date(year, month, day);
+            const input = document.getElementById(inputId);
+            input.value = formatDate(date);
+            hideAllCalendars();
+        }
+
+        // Changer de mois dans le calendrier
+        function changeMonth(button, direction, inputId) {
+            const input = document.getElementById(inputId);
+            const calendarId = `calendar-${inputId.replace('form-', '')}`;
+            const calendar = document.getElementById(calendarId);
+            
+            const currentDate = input.value ? parseDate(input.value) : new Date();
+            const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + direction, 1);
+            
+            showCalendar(calendar, input);
+        }
+
+        // Initialisation des onglets
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabPanes.forEach(p => p.classList.add('hidden'));
+                    
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.remove('hidden');
+                    
+                    if (tabId === 'dashboard') {
+                        updateDashboard();
+                    } else {
+                        updateTableData(tabId);
+                    }
+                });
+            });
+        }
+
+        // Initialisation des popups
+        function initPopups() {
+            // Fermeture des popups
+            document.querySelectorAll('.close-button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.popup').forEach(popup => {
+                        popup.classList.remove('active');
+                    });
+                    state.currentEditingItem = null;
+                });
+            });
+
+            // Fermeture en cliquant sur l'arrière-plan
+            document.querySelectorAll('.popup').forEach(popup => {
+                popup.addEventListener('click', (e) => {
+                    if (e.target === popup) {
+                        popup.classList.remove('active');
+                        state.currentEditingItem = null;
+                    }
+                });
+            });
+
+            // Popup des paramètres
+            document.getElementById('settings-button').addEventListener('click', () => {
+                document.getElementById('settings-popup').classList.add('active');
+            });
+
+            // Popup de confirmation de suppression
+            document.getElementById('cancel-delete').addEventListener('click', () => {
+                document.getElementById('confirmation-popup').classList.remove('active');
+                state.deleteItemId = null;
+                state.deleteYear = null;
+            });
+
+            document.getElementById('confirm-delete').addEventListener('click', () => {
+                if (state.deleteYear) {
+                    // Suppression d'une année
+                    delete state.data[state.deleteYear];
+                    state.availableYears = state.availableYears.filter(year => year !== state.deleteYear);
+                    
+                    if (state.currentYear === state.deleteYear) {
+                        state.currentYear = state.availableYears[state.availableYears.length - 1] || '2025';
+                        if (!state.data[state.currentYear]) {
+                            state.data[state.currentYear] = {
+                                nouveautes: [],
+                                evolutions: [],
+                                diversifications: []
+                            };
+                            state.availableYears.push(state.currentYear);
+                        }
+                    }
+                    
+                    updateYearSelector();
+                    document.getElementById('year-select').value = state.currentYear;
+                    updateMainTitle();
+                    showToast(`Année ${state.deleteYear} supprimée`);
+                } else if (state.deleteItemId && state.currentCategory) {
+                    // Suppression d'un élément
+                    const index = state.data[state.currentYear][state.currentCategory].findIndex(
+                        item => item.id === state.deleteItemId
+                    );
+                    if (index !== -1) {
+                        state.data[state.currentYear][state.currentCategory].splice(index, 1);
+                        showToast('Élément supprimé avec succès');
+                        updateAllTables();
+                        updateDashboard();
+                    }
+                }
+                
+                document.getElementById('confirmation-popup').classList.remove('active');
+                state.deleteItemId = null;
+                state.deleteYear = null;
+                state.currentCategory = null;
+            });
+        }
+
+        // Initialisation de la gestion des années
+        function initYearManagement() {
+            const yearSelect = document.getElementById('year-select');
+            const createYearBtn = document.getElementById('create-year-btn');
+            const deleteYearBtn = document.getElementById('delete-year-btn');
+
+            updateYearSelector();
+
+            yearSelect.addEventListener('change', (e) => {
+                state.currentYear = e.target.value;
+                updateMainTitle();
+                updateDashboard();
+                updateAllTables();
+            });
+
+            createYearBtn.addEventListener('click', () => {
+                document.getElementById('create-year-popup').classList.add('active');
+                document.getElementById('new-year-input').value = '';
+            });
+
+            deleteYearBtn.addEventListener('click', () => {
+                if (state.currentYear === 'all') {
+                    showToast('Impossible de supprimer "Toutes les années"');
+                    return;
+                }
+                if (state.availableYears.length <= 1) {
+                    showToast('Impossible de supprimer la dernière année');
+                    return;
+                }
+                state.deleteYear = state.currentYear;
+                document.getElementById('confirmation-popup').classList.add('active');
+                document.querySelector('#confirmation-popup p').textContent = 
+                    `Êtes-vous sûr de vouloir supprimer l'année ${state.currentYear} et toutes ses données ? Cette action est irréversible.`;
+            });
+
+            // Popup de création d'année
+            document.getElementById('close-create-year').addEventListener('click', () => {
+                document.getElementById('create-year-popup').classList.remove('active');
+            });
+            
+            document.getElementById('cancel-create-year').addEventListener('click', () => {
+                document.getElementById('create-year-popup').classList.remove('active');
+            });
+            
+            document.getElementById('confirm-create-year').addEventListener('click', () => {
+                const newYear = document.getElementById('new-year-input').value;
+                if (!newYear || newYear.length !== 4) {
+                    showToast('Veuillez entrer une année valide (4 chiffres)');
+                    return;
+                }
+                if (state.availableYears.includes(newYear)) {
+                    showToast('Cette année existe déjà');
+                    return;
+                }
+                
+                state.availableYears.push(newYear);
+                state.availableYears.sort();
+                state.data[newYear] = {
+                    nouveautes: [],
+                    evolutions: [],
+                    diversifications: []
+                };
+                
+                updateYearSelector();
+                state.currentYear = newYear;
+                document.getElementById('year-select').value = newYear;
+                updateMainTitle();
+                
+                document.getElementById('create-year-popup').classList.remove('active');
+                showToast(`Année ${newYear} créée avec succès`);
+                
+                updateDashboard();
+                updateAllTables();
+            });
+        }
+
+        // Initialisation de l'import/export
+        function initImportExport() {
+            // Export JSON
+            const exportBtn = document.getElementById('export-json-button');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', () => {
+                    const exportData = {
+                        metadata: {
+                            exportDate: new Date().toISOString(),
+                            exportType: 'all_years',
+                            availableYears: state.availableYears
+                        },
+                        data: state.data
+                    };
+                    
+                    const fileName = `export_complet_${new Date().toISOString().split('T')[0]}.json`;
+                    
+                    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json" });
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement("a");
+                    link.href = url;
+                    link.download = fileName;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+
+                    document.getElementById('last-save-time').textContent = new Date().toLocaleString();
+                    showToast(`Export JSON complet effectué: ${fileName}`);
+                });
+            }
+
+            // Import JSON
+            const input = document.getElementById('import-json-file');
+            const button = document.getElementById('import-json-button');
+
+            if (button && input) {
+                button.addEventListener('click', () => input.click());
+
+                input.addEventListener('change', async (event) => {
+                    const file = event.target.files[0];
+                    if (!file) return;
+
+                    const content = await file.text();
+                    let jsonData;
+                    try {
+                        jsonData = JSON.parse(content);
+                    } catch (e) {
+                        showToast("Erreur de lecture du fichier JSON");
+                        return;
+                    }
+
+                    // Vérifier le type d'export
+                    if (jsonData.metadata && jsonData.metadata.exportType === 'all_years') {
+                        // Import de toutes les années
+                        if (confirm('Ce fichier contient des données pour plusieurs années. Voulez-vous les importer toutes ?')) {
+                            try {
+                                let totalImported = 0;
+                                Object.keys(jsonData.data).forEach(year => {
+                                    if (!state.availableYears.includes(year)) {
+                                        state.availableYears.push(year);
+                                    }
+                                    
+                                    if (!state.data[year]) {
+                                        state.data[year] = {
+                                            nouveautes: [],
+                                            evolutions: [],
+                                            diversifications: []
+                                        };
+                                    }
+                                    
+                                    // Merger les données sans doublons
+                                    ['nouveautes', 'evolutions', 'diversifications'].forEach(category => {
+                                        if (jsonData.data[year][category]) {
+                                            jsonData.data[year][category].forEach(newItem => {
+                                                const exists = state.data[year][category].some(existing => 
+                                                    itemsAreEqual(existing, newItem)
+                                                );
+                                                if (!exists) {
+                                                    newItem.id = newItem.id || (Date.now().toString() + Math.random().toString(36).substr(2, 5));
+                                                    newItem.year = year;
+                                                    state.data[year][category].push(newItem);
+                                                    totalImported++;
+                                                }
+                                            });
+                                        }
+                                    });
+                                });
+                                
+                                state.availableYears.sort();
+                                updateYearSelector();
+                                updateAllTables();
+                                updateDashboard();
+                                
+                                showToast(`Import multi-années effectué: ${totalImported} éléments importés`);
+                            } catch (error) {
+                                console.error('Erreur lors de l\'import multi-années:', error);
+                                showToast('Erreur lors de l\'import multi-années');
+                            }
+                        }
+                    } else {
+                        // Import simple - demander dans quelle année
+                        const targetYear = state.currentYear === 'all' ? 
+                            state.availableYears[state.availableYears.length - 1] : 
+                            state.currentYear;
+                        
+                        if (confirm(`Importer dans l'année ${targetYear} ?`)) {
+                            try {
+                                performImport(jsonData, targetYear);
+                            } catch (error) {
+                                console.error('Erreur lors de l\'import:', error);
+                                showToast('Erreur lors de l\'import des données');
+                            }
+                        }
+                    }
+
+                    input.value = '';
+                });
+            }
+        }
+
+        // Mettre à jour tous les tableaux
+        function updateAllTables() {
+            updateTableData('nouveautes');
+            updateTableData('evolutions');
+            updateTableData('diversifications');
+        }
+
+        // Mettre à jour les données d'un tableau
+        function updateTableData(category) {
+            const table = document.getElementById(`${category}-table`);
+            const tbody = table.querySelector('tbody');
+            
+            if (!tbody) return;
+
+            const currentData = getCurrentYearData();
+            const items = currentData[category] || [];
+
+            tbody.innerHTML = '';
+
+            if (items.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="11" class="text-center py-4 text-gray-500">
+                            Aucune donnée disponible
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            items.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="py-2 px-4">${item.dateCreation || ''}</td>
+                    <td class="py-2 px-4">${item.dateSchemaReview || ''}</td>
+                    <td class="py-2 px-4">${item.dateImplantationReview || ''}</td>
+                    <td class="py-2 px-4">${item.datePLM || ''}</td>
+                    <td class="py-2 px-4">${item.name || ''}</td>
+                    <td class="py-2 px-4">${item.number || ''}</td>
+                    <td class="py-2 px-4">${item.type || ''}</td>
+                    <td class="py-2 px-4">${item.frontDesigner || ''}</td>
+                    <td class="py-2 px-4">${item.backImplanter || ''}</td>
+                    <td class="py-2 px-4">${item.comments || ''}</td>
+                    <td class="py-2 px-4 text-center">
+                        <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="editItem('${category}', '${item.id}')">
+                            <svg class="icon-edit"><use href="#icon-edit"></use></svg>
+                        </button>
+                        <button class="text-red-600 hover:text-red-800" onclick="deleteItem('${category}', '${item.id}')">
+                            <svg class="icon-trash"><use href="#icon-trash"></use></svg>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Éditer un élément
+        function editItem(category, itemId) {
+            if (state.currentYear === 'all') {
+                showToast('Impossible de modifier un élément en mode "Toutes les années"');
+                return;
+            }
+
+            const item = state.data[state.currentYear][category].find(item => item.id === itemId);
+            if (item) {
+                openFormPopup(category, item);
+            }
+        }
+
+        // Supprimer un élément
+        function deleteItem(category, itemId) {
+            if (state.currentYear === 'all') {
+                showToast('Impossible de supprimer un élément en mode "Toutes les années"');
+                return;
+            }
+
+            state.deleteItemId = itemId;
+            state.currentCategory = category;
+            document.getElementById('confirmation-popup').classList.add('active');
+            document.querySelector('#confirmation-popup p').textContent = 
+                'Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.';
+        }
+
+        // Fonctions utilitaires
+        function updateYearSelector() {
+            const yearSelect = document.getElementById('year-select');
+            const currentValue = yearSelect.value;
+            
+            yearSelect.innerHTML = '';
+            
+            state.availableYears.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            });
+            
+            const allOption = document.createElement('option');
+            allOption.value = 'all';
+            allOption.textContent = 'Toutes les années';
+            yearSelect.appendChild(allOption);
+            
+            if (state.availableYears.includes(currentValue) || currentValue === 'all') {
+                yearSelect.value = currentValue;
+            } else {
+                yearSelect.value = state.availableYears[state.availableYears.length - 1] || '2025';
+                state.currentYear = yearSelect.value;
+            }
+        }
+
+        function updateMainTitle() {
+            const title = document.getElementById('main-title');
+            if (state.currentYear === 'all') {
+                title.textContent = 'Bilan des cartes PES - Toutes les années';
+            } else {
+                title.textContent = `Bilan des cartes PES ${state.currentYear}`;
+            }
+        }
+
+        function getCurrentYearData() {
+            if (state.currentYear === 'all') {
+                const combined = {
+                    nouveautes: [],
+                    evolutions: [],
+                    diversifications: []
+                };
+                
+                state.availableYears.forEach(year => {
+                    if (state.data[year]) {
+                        combined.nouveautes.push(...state.data[year].nouveautes);
+                        combined.evolutions.push(...state.data[year].evolutions);
+                        combined.diversifications.push(...state.data[year].diversifications);
+                    }
+                });
+                
+                return combined;
+            } else {
+                return state.data[state.currentYear] || {
+                    nouveautes: [],
+                    evolutions: [],
+                    diversifications: []
+                };
+            }
+        }
+
+        function formatDate(date) {
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        function parseDate(dateString) {
+            if (!dateString) return null;
+            
+            const parts = dateString.split('/');
+            if (parts.length !== 3) return new Date();
+            
+            const day = parseInt(parts[0], 10);
+            const month = parseInt(parts[1], 10) - 1;
+            const year = parseInt(parts[2], 10);
+            
+            return new Date(year, month, day);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function performImport(jsonData, targetYear) {
+            try {
+                if (!state.data[targetYear]) {
+                    state.data[targetYear] = {
+                        nouveautes: [],
+                        evolutions: [],
+                        diversifications: []
+                    };
+                }
+                
+                let totalAjoutes = 0;
+                
+                ['nouveautes', 'evolutions', 'diversifications'].forEach(category => {
+                    if (Array.isArray(jsonData[category])) {
+                        jsonData[category].forEach(newItem => {
+                            // Vérifier si l'élément existe déjà dans cette année
+                            const alreadyExists = state.data[targetYear][category].some(existing => 
+                                itemsAreEqual(existing, newItem)
+                            );
+                            
+                            if (!alreadyExists) {
+                                newItem.id = newItem.id || (Date.now().toString() + Math.random().toString(36).substr(2, 5));
+                                newItem.createdAt = newItem.createdAt || new Date().toISOString();
+                                newItem.year = targetYear;
+                                state.data[targetYear][category].push(newItem);
+                                totalAjoutes++;
+                            }
+                        });
+                    }
+                });
+                
+                // Si l'année n'était pas dans la liste, l'ajouter
+                if (!state.availableYears.includes(targetYear)) {
+                    state.availableYears.push(targetYear);
+                    state.availableYears.sort();
+                    updateYearSelector();
+                }
+                
+                updateAllTables();
+                updateDashboard();
+                
+                showToast(`${totalAjoutes} élément(s) importé(s) dans l'année ${targetYear}`);
+            } catch (error) {
+                console.error('Erreur lors de l\'import:', error);
+                showToast('Erreur lors de l\'import des données');
+            }
+        }
+
+        function itemsAreEqual(a, b) {
+            return ['dateCreation', 'dateSchemaReview', 'dateImplantationReview', 'datePLM',
+                    'name', 'number', 'type', 'frontDesigner', 'backImplanter', 'comments']
+                .every(key => (a[key] || '') === (b[key] || ''));
+        }
+
+        // Initialisation des graphiques
+        function initCharts() {
+            updateDashboard();
+        }
+
+        // Initialisation des paramètres
+        function initSettings() {
+            // Mode sombre
+            document.getElementById('dark-mode-toggle').addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    state.darkMode = true;
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    state.darkMode = false;
+                }
+            });
+
+            // Export PDF (fonction basique)
+            document.getElementById('export-pdf').addEventListener('click', () => {
+                showToast('Fonction d\'export PDF à implémenter');
+            });
+
+            // Export Excel (fonction basique)
+            document.getElementById('export-excel').addEventListener('click', () => {
+                showToast('Fonction d\'export Excel à implémenter');
+            });
+        }
+
+        // Initialisation du tri des tableaux
+        function initTableSort() {
+            document.querySelectorAll('th[data-sort]').forEach(header => {
+                header.addEventListener('click', () => {
+                    const column = header.getAttribute('data-sort');
+                    const table = header.closest('table');
+                    const tableId = table.id;
+                    const category = tableId.replace('-table', '');
+                    
+                    sortTable(category, column);
+                });
+            });
+        }
+
+        // Trier un tableau
+        function sortTable(category, column) {
+            const currentData = getCurrentYearData();
+            const items = currentData[category] || [];
+            
+            if (state.sortColumn === column) {
+                state.sortDirection = state.sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                state.sortColumn = column;
+                state.sortDirection = 'asc';
+            }
+
+            items.sort((a, b) => {
+                let aVal = a[column] || '';
+                let bVal = b[column] || '';
+
+                // Gestion spéciale pour les dates
+                if (column.includes('date') || column.includes('Date')) {
+                    aVal = parseDate(aVal) || new Date(0);
+                    bVal = parseDate(bVal) || new Date(0);
+                } else {
+                    aVal = aVal.toString().toLowerCase();
+                    bVal = bVal.toString().toLowerCase();
+                }
+
+                if (state.sortDirection === 'asc') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+
+            // Mettre à jour les indicateurs de tri
+            document.querySelectorAll('th').forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+            });
+
+            const header = document.querySelector(`#${category}-table th[data-sort="${column}"]`);
+            if (header) {
+                header.classList.add(`sort-${state.sortDirection}`);
+            }
+
+            updateTableData(category);
+        }
+
+        // Initialisation des gestionnaires de clic sur les graphiques
+        function initChartClickHandlers() {
+            document.querySelectorAll('.card[data-chart-type]').forEach(card => {
+                card.addEventListener('click', (event) => {
+                    if (event.target.closest('button, input, select, textarea')) {
+                        return;
+                    }
+                    
+                    const chartType = card.getAttribute('data-chart-type');
+                    openChartDetailPopup(chartType);
+                });
+            });
+
+            document.getElementById('close-chart-detail').addEventListener('click', () => {
+                document.getElementById('chart-detail-popup').classList.remove('active');
+                state.chartDetailPopupOpen = false;
+            });
+
+            document.getElementById('chart-detail-popup').addEventListener('click', (event) => {
+                if (event.target.id === 'chart-detail-popup') {
+                    document.getElementById('chart-detail-popup').classList.remove('active');
+                    state.chartDetailPopupOpen = false;
+                }
+            });
+        }
+
+        // Ouvrir la popup de détails d'un graphique
+        function openChartDetailPopup(chartType) {
+            const popup = document.getElementById('chart-detail-popup');
+            const title = document.getElementById('chart-detail-title');
+            const container = document.getElementById('chart-detail-container');
+
+            const titles = {
+                'distribution': 'Répartition détaillée des articles',
+                'monthly': 'Calendrier détaillé des articles par mois',
+                'general-stats': 'Statistiques générales détaillées',
+                'total-articles': 'Liste détaillée de tous les articles',
+                'top-implanters': 'Tous les implanteurs et leurs projets',
+                'top-designers': 'Tous les concepteurs et leurs projets'
+            };
+
+            title.textContent = titles[chartType] || 'Détails du graphique';
+            container.innerHTML = generateChartDetailContent(chartType);
+            popup.classList.add('active');
+            state.chartDetailPopupOpen = true;
+
+            setTimeout(() => {
+                initDetailCharts(chartType);
+            }, 200);
+        }
+
+        // Générer le contenu détaillé d'un graphique
+        function generateChartDetailContent(chartType) {
+            const currentData = getCurrentYearData();
+            const allItems = [...currentData.nouveautes, ...currentData.evolutions, ...currentData.diversifications];
+
+            switch (chartType) {
+                case 'distribution':
+                    return generateDistributionDetailContent(currentData);
+                case 'monthly':
+                    return generateMonthlyDetailContent(currentData, allItems);
+                case 'general-stats':
+                    return generateGeneralStatsDetailContent(allItems);
+                case 'total-articles':
+                    return generateTotalArticlesDetailContent(allItems);
+                case 'top-implanters':
+                    return generateTopImplantersDetailContent(allItems);
+                case 'top-designers':
+                    return generateTopDesignersDetailContent(allItems);
+                default:
+                    return '<p>Détails non disponibles pour ce graphique.</p>';
+            }
+        }
+
+        // Générer le contenu détaillé de la répartition
+        function generateDistributionDetailContent(currentData) {
+            const nouveautesCount = currentData.nouveautes.length;
+            const evolutionsCount = currentData.evolutions.length;
+            const diversificationsCount = currentData.diversifications.length;
+            const total = nouveautesCount + evolutionsCount + diversificationsCount;
+
+            let content = `
+                <div class="chart-detail-left">
+                    <div class="statistics-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">${nouveautesCount}</span>
+                            <span class="stat-label">Nouveautés</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${evolutionsCount}</span>
+                            <span class="stat-label">Évolutions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${diversificationsCount}</span>
+                            <span class="stat-label">Diversifications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${total}</span>
+                            <span class="stat-label">Total</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-detail-right">
+                    <h4 class="text-lg font-semibold mb-3">Détails par catégorie</h4>
+                    <div class="detail-list">
+                        <h5 class="font-semibold mb-2 text-blue-600">Nouveautés (${nouveautesCount})</h5>
+                        ${generateCategoryItemsList(currentData.nouveautes)}
+                        
+                        <h5 class="font-semibold mb-2 mt-4 text-red-600">Évolutions (${evolutionsCount})</h5>
+                        ${generateCategoryItemsList(currentData.evolutions)}
+                        
+                        <h5 class="font-semibold mb-2 mt-4 text-green-600">Diversifications (${diversificationsCount})</h5>
+                        ${generateCategoryItemsList(currentData.diversifications)}
+                    </div>
+                </div>
+            `;
+
+            return content;
+        }
+
+        function generateCategoryItemsList(items) {
+            if (items.length === 0) {
+                return '<div class="detail-item text-gray-500">Aucun élément dans cette catégorie</div>';
+            }
+
+            return items.map(item => `
+                <div class="detail-item">
+                    <div>
+                        <strong>${item.name || 'Sans nom'}</strong>
+                        <div class="text-sm text-gray-600">
+                            N° ${item.number || 'Non spécifié'} • ${item.type || 'Maquette'} • ${item.dateCreation || 'Date inconnue'}
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            Concepteur: ${item.frontDesigner || 'Non spécifié'} • Implanteur: ${item.backImplanter || 'Non spécifié'}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Autres fonctions de génération de contenu détaillé
+        function generateMonthlyDetailContent(currentData, allItems) {
+            return '<div class="text-center py-8"><p>Détails mensuels à implémenter</p></div>';
+        }
+
+        function generateGeneralStatsDetailContent(allItems) {
+            const uniqueDesigners = new Set();
+            const uniqueImplanters = new Set();
+            const typeStats = { Maquette: 0, Produit: 0 };
+
+            allItems.forEach(item => {
+                if (item.frontDesigner && item.frontDesigner.trim()) {
+                    uniqueDesigners.add(item.frontDesigner.trim());
+                }
+                if (item.backImplanter && item.backImplanter.trim()) {
+                    uniqueImplanters.add(item.backImplanter.trim());
+                }
+                typeStats[item.type || 'Maquette']++;
+            });
+
+            return `
+                <div class="chart-detail-left">
+                    <div class="statistics-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">${uniqueDesigners.size}</span>
+                            <span class="stat-label">Concepteurs uniques</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${uniqueImplanters.size}</span>
+                            <span class="stat-label">Implanteurs uniques</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${typeStats.Maquette}</span>
+                            <span class="stat-label">Maquettes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${typeStats.Produit}</span>
+                            <span class="stat-label">Produits</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-detail-right">
+                    <h4 class="text-lg font-semibold mb-3">Listes détaillées</h4>
+                    <div class="detail-list">
+                        <h5 class="font-semibold mb-2 text-blue-600">Concepteurs (${uniqueDesigners.size})</h5>
+                        ${Array.from(uniqueDesigners).sort().map(designer => 
+                            `<div class="detail-item">
+                                <span>${designer}</span>
+                                <span class="text-sm text-gray-600">${allItems.filter(item => item.frontDesigner === designer).length} articles</span>
+                            </div>`
+                        ).join('')}
+                        
+                        <h5 class="font-semibold mb-2 mt-4 text-green-600">Implanteurs (${uniqueImplanters.size})</h5>
+                        ${Array.from(uniqueImplanters).sort().map(implanter => 
+                            `<div class="detail-item">
+                                <span>${implanter}</span>
+                                <span class="text-sm text-gray-600">${allItems.filter(item => item.backImplanter === implanter).length} articles</span>
+                            </div>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateTotalArticlesDetailContent(allItems) {
+            return `
+                <div class="chart-detail-left">
+                    <div class="statistics-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">${allItems.length}</span>
+                            <span class="stat-label">Total articles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-detail-right">
+                    <h4 class="text-lg font-semibold mb-3">Liste complète</h4>
+                    <div class="detail-list">
+                        ${allItems.map(item => `
+                            <div class="detail-item">
+                                <div>
+                                    <strong>${item.name || 'Sans nom'}</strong>
+                                    <div class="text-sm text-gray-600">
+                                        N° ${item.number || 'Non spécifié'} • ${item.type || 'Maquette'}
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateTopImplantersDetailContent(allItems) {
+            return '<div class="text-center py-8"><p>Détails des implanteurs à implémenter</p></div>';
+        }
+
+        function generateTopDesignersDetailContent(allItems) {
+            return '<div class="text-center py-8"><p>Détails des concepteurs à implémenter</p></div>';
+        }
+
+        function initDetailCharts(chartType) {
+            // Fonction basique pour l'initialisation des graphiques détaillés
+            console.log('Detail charts initialized for:', chartType);
+        }
+
+        // Mettre à jour le tableau de bord
+        function updateDashboard() {
+            const currentData = getCurrentYearData();
+            
+            // Mettre à jour le nombre total d'articles
+            const totalArticles = currentData.nouveautes.length + currentData.evolutions.length + currentData.diversifications.length;
+            document.getElementById('total-articles-simple').textContent = totalArticles;
+            
+            // Calculer le nombre de concepteurs et implanteurs uniques
+            const allItems = [...currentData.nouveautes, ...currentData.evolutions, ...currentData.diversifications];
+            const uniqueDesigners = new Set();
+            const uniqueImplanters = new Set();
+            
+            allItems.forEach(item => {
+                if (item.frontDesigner && item.frontDesigner.trim()) {
+                    uniqueDesigners.add(item.frontDesigner.trim());
+                }
+                if (item.backImplanter && item.backImplanter.trim()) {
+                    uniqueImplanters.add(item.backImplanter.trim());
+                }
+            });
+            
+            document.getElementById('total-designers').textContent = uniqueDesigners.size;
+            document.getElementById('total-implanters').textContent = uniqueImplanters.size;
+
+            // Ici, vous pourriez ajouter la logique pour mettre à jour les vrais graphiques Chart.js
+            // Pour l'instant, nous nous contentons des statistiques de base
+        }
+
+        // Exposer certaines fonctions globalement pour les événements onclick
+        window.editItem = editItem;
+        window.deleteItem = deleteItem;
+        window.selectDate = selectDate;
+        window.changeMonth = changeMonth;
+    </script>
+</body>
+</html>	
