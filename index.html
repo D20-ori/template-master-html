@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Bilan des cartes PES 2025 - Version Finale</title>
+<title>Bilan 2025 - Version Finale</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
@@ -22,7 +22,7 @@
         }
 
         body {
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -689,7 +689,7 @@
 <div class="container mx-auto px-4 py-4">
 <div class="top-bar mb-8 pb-4">
 <div class="flex justify-between items-center mb-6">
-<h1 class="text-3xl font-bold" id="main-title">Bilan des cartes PES 2025</h1>
+<h1 class="text-3xl font-bold" id="main-title">Bilan 2025</h1>
 
 <!-- Export JSON déplacé ici -->
 <div class="export-json-container">
@@ -2286,9 +2286,9 @@
         function updateMainTitle() {
             const title = document.getElementById('main-title');
             if (state.currentYear === 'all') {
-                title.textContent = 'Bilan des cartes PES - Toutes les années';
+                title.textContent = 'Bilan - Toutes les années';
             } else {
-                title.textContent = `Bilan des cartes PES ${state.currentYear}`;
+                title.textContent = `Bilan ${state.currentYear}`;
             }
         }
 
@@ -3664,8 +3664,8 @@
                 // Ajouter un titre avec l'année
                 doc.setFontSize(18);
                 const titleText = state.currentYear === 'all' ? 
-                    'Bilan des cartes PES - Toutes les années' : 
-                    `Bilan des cartes PES ${state.currentYear}`;
+                    'Bilan - Toutes les années' : 
+                    `Bilan ${state.currentYear}`;
                 doc.text(titleText, 14, 20);
                 
                 // Ajouter la date d'exportation
@@ -3682,8 +3682,8 @@
                 
                 // Enregistrer le PDF
                 const fileName = state.currentYear === 'all' ? 
-                    'bilan_cartes_PES_toutes_annees.pdf' : 
-                    `bilan_cartes_PES_${state.currentYear}.pdf`;
+                    'bilan_toutes_annees.pdf' : 
+                    `bilan_${state.currentYear}.pdf`;
                 doc.save(fileName);
                 
                 showToast('Export PDF réussi');
@@ -3874,7 +3874,7 @@
                 
                 // Ajouter un en-tête avec l'année
                 const yearInfo = state.currentYear === 'all' ? 'Toutes les années' : state.currentYear;
-                csvContent += `Bilan des cartes PES - ${yearInfo}\n`;
+                csvContent += `Bilan - ${yearInfo}\n`;
                 csvContent += `Exporté le: ${new Date().toLocaleString()}\n\n`;
                 
                 // Ajouter les en-têtes
@@ -3941,8 +3941,8 @@
                 
                 // Nom de fichier dynamique
                 const fileName = state.currentYear === 'all' ? 
-                    'bilan_cartes_PES_toutes_annees.csv' : 
-                    `bilan_cartes_PES_${state.currentYear}.csv`;
+                    'bilan_toutes_annees.csv' : 
+                    `bilan_${state.currentYear}.csv`;
                 link.setAttribute('download', fileName);
                 
                 document.body.appendChild(link);
